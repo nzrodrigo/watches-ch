@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CarWidget from './CarWidget';
 
 
 const Navbar = () => {
@@ -21,6 +22,9 @@ const Navbar = () => {
           <a class="nav-link" href="#">Smartwatches</a>
         </li>
       </ul>
+      <div class="ms-auto ">
+        <CarWidget />
+      </div>
     </div>
   </div>
 </nav>
