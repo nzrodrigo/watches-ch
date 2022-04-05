@@ -1,14 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from"./components/NavBar.js"
 
 import ItemListCointainer from './components/ItemListContainer';
+import ItemCount from './components/ItemCount';
 
 function App() {
+  
   return (
     <div className="App">
       <NavBar />
-      <ItemListCointainer greetings="mensajito"/>
+      <ItemListCointainer />
     </div>
   );
 }
