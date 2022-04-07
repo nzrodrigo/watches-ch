@@ -1,4 +1,4 @@
-import { Card, Col } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
 export default function Item({ item }){
@@ -7,7 +7,7 @@ export default function Item({ item }){
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={item.imageLink} />
                 <Card.Body>
-                    <Card.Title>{item.Title}</Card.Title>
+                    <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
                     {item.description}
                     </Card.Text>

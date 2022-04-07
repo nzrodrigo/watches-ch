@@ -26,17 +26,10 @@ const products = [
 
 ];
 
-const promesa = new Promise(function(resolve, reject){
-
-    setTimeout(function(){
-        resolve(products);
-    }, 2000)
-})
-
-function getProducts(){
-    return promesa;
+export const getProducts = ()=>{
+    return new Promise (resolve=>{
+        setTimeout(()=>{
+            resolve(products)
+        }, 2000)
+        })
 }
-
-export {
-    getProducts,
-} 

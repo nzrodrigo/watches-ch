@@ -7,9 +7,9 @@ export default function ItemList({ products }){
 
         <div>
             {
-                products.map(function(producto){
+                products.map((product)=>{
                     return (
-                        <Item key={producto.id} item={producto} />
+                        <Item key={product.id} item={product} />
                     );
                 })
                 

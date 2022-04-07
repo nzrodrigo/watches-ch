@@ -34,7 +34,7 @@ function ItemCount ({stock, initial, onAdd}){
                 {itemCounter}
             </p>
             <button className="btn btn-outline-secondary" type="button" onClick={subtract}>-</button>
-            <button className="btn btn-secondary btn-sm mt-2 ">Agregar al carrito</button>
+            <button className="btn btn-secondary btn-sm mt-2 " onClick={addToCart}>Agregar al carrito</button>
         </div>  
         
     )
