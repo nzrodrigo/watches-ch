@@ -1,6 +1,8 @@
 import './App.css';
 import NavBar from"./components/NavBar.js"
 import ItemListCointainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import { BrowserRoute, Routes, Route} from 'react-router-dom';
 
 
 function App() {
@@ -9,6 +11,7 @@ function App() {
     <div className="App">
       <NavBar />
       <ItemListCointainer />
+      <ItemDetailContainer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 const products = [
     {
-        id: 1,
+        id: '1',
         title: 'RELOJ MISTRAL GMI-5527-02',
         description: 'Reloj analogo de acero, sumergible 50m. Cuadrante azul oscuro con textura en bajo relieve.',
         price: 34000,
@@ -8,7 +8,7 @@ const products = [
     },
 
     {
-        id: 2,
+        id: '2',
         title: 'RELOJ VINTAGE A-159WA-N1',
         description: 'Iluminación por LED. Cronómetro de 1/100 segundos. Alarma diaria. Señal de hora. Calendario automático.',
         price: 9230,
@@ -16,7 +16,7 @@ const products = [
     },
 
     {
-        id: 3,
+        id: '3',
         title: 'Samsung Galaxy Watch4',
         description: 'Diseño clásico y de primera calidad con bisel giratorio',
         price: 61999,
@@ -26,10 +26,32 @@ const products = [
 
 ];
 
-export const getProducts = ()=>{
-    return new Promise (resolve=>{
-        setTimeout(()=>{
-            resolve(products)
-        }, 2000)
-        })
+const categories = [
+    {id: 'analog', name: 'Analogicos'},
+    {id: 'dig', name: 'Digitales'},
+    {id: 'smart', name: 'Smartwatches'}
+]
+
+export const getCategories = () => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(categories)
+        }, 500)
+    })
+}
+
+export const getProducts = (categoryId) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(categoryId ? products.filter(prod => prod.category === categoryId) : products)
+        }, 500)
+    })
+}
+
+export const getProductsById = (id) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === id))
+        }, 500)
+    })
 }

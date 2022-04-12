@@ -1,19 +1,19 @@
-import { Col, Row } from 'react-bootstrap';
+import {Container, Row } from 'react-bootstrap';
 import Item from './Item';
 
 
 export default function ItemList({ products }){
     return(
-
-        <div>
+        <Container className="mt-3">
+        <Row>
             {
                 products.map((product)=>{
                     return (
                         <Item key={product.id} item={product} />
                     );
-                })
-                
+                })     
             }
-        </div>
+        </Row>
+        </Container>
     );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 import ItemCount from './ItemCount.js'
 import { useEffect, useState} from "react";
-import { getProducts } from '../asynkmock';
+import { getProducts } from '../asyncmock';
 import ItemList from './ItemList';
+
 
 function ItemListContainer(){
     
