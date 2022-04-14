@@ -5,7 +5,8 @@ const products = [
         description: 'Reloj analógico con movimiento a cuarzo pantalla con indicador de fecha cronógrafos de segundos, minutos, y 24 horas. Caja y Correa de Acero Inoxidable.',
         category: 'analogico',
         price: 34000,
-        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_882263-MLA41107530616_032020-O.webp'
+        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_882263-MLA41107530616_032020-O.webp',
+        stock: '10'
     },
 
     {
@@ -14,7 +15,8 @@ const products = [
         description: 'Iluminación por LED. Cronómetro de 1/100 segundos. Alarma diaria. Señal de hora. Calendario automático.',
         category: 'digital',
         price: 9230,
-        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_637545-MLA40124273263_122019-O.webp'
+        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_637545-MLA40124273263_122019-O.webp',
+        stock: '10'
     },
 
     {
@@ -23,7 +25,8 @@ const products = [
         description: 'Pantalla SAMOLED de 1.2". Apto para descarga de aplicaciones. Resiste hasta 50m bajo el agua. Batería de 40 h de duración. Capacidad de la memoria interna de 16GB.',
         category: 'smart',
         price: 61999,
-        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_888122-MLA48026721287_102021-O.webp'
+        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_888122-MLA48026721287_102021-O.webp',
+        stock: '10'
     },
 
 

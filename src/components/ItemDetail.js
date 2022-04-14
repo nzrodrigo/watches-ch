@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const ItemDetail = ({ imageLink, title, description, price, category }) => {
+const ItemDetail = ({ imageLink, title, description, price, category, stock }) => {
 
     return( 
             <Card className="mt-5 px-auto">
@@ -23,6 +23,9 @@ const ItemDetail = ({ imageLink, title, description, price, category }) => {
             </Card.Text>
             <Button  as={Link} to={'/carwidget'} variant="secondary" className="mb-3">Agregar al carrito</Button>
             </Card.Body>
+            <Card.Text className="my-4">
+                {`Stock disponible: ${stock}`}
+            </Card.Text>
             </Card>                      
     );
 }
