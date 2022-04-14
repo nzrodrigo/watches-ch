@@ -1,44 +1,48 @@
 const products = [
     {
         id: '1',
-        title: 'RELOJ MISTRAL GMI-5527-02',
-        description: 'Reloj analogo de acero, sumergible 50m. Cuadrante azul oscuro con textura en bajo relieve.',
+        title: 'Reloj Mistral Cht-7151-02-c',
+        description: 'Reloj analógico con movimiento a cuarzo pantalla con indicador de fecha cronógrafos de segundos, minutos, y 24 horas. Caja y Correa de Acero Inoxidable.',
+        category: 'analogico',
         price: 34000,
-        imageLink: 'https://watchlandsa.vteximg.com.br/arquivos/ids/163373-192-240/GMI-5527-02.jpg?v=637725996945330000/'
+        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_882263-MLA41107530616_032020-O.webp'
     },
 
     {
         id: '2',
-        title: 'RELOJ VINTAGE A-159WA-N1',
+        title: 'Reloj vintage A-159WA-N1',
         description: 'Iluminación por LED. Cronómetro de 1/100 segundos. Alarma diaria. Señal de hora. Calendario automático.',
+        category: 'digital',
         price: 9230,
-        imageLink: 'https://watchlandsa.vteximg.com.br/arquivos/ids/158062-192-240/A-159WA-N1.jpg?v=637120303586700000/'
+        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_637545-MLA40124273263_122019-O.webp'
     },
 
     {
         id: '3',
         title: 'Samsung Galaxy Watch4',
-        description: 'Diseño clásico y de primera calidad con bisel giratorio',
+        description: 'Pantalla SAMOLED de 1.2". Apto para descarga de aplicaciones. Resiste hasta 50m bajo el agua. Batería de 40 h de duración. Capacidad de la memoria interna de 16GB.',
+        category: 'smart',
         price: 61999,
-        imageLink: 'https://images.samsung.com/is/image/samsung/p6pim/ar/2108/gallery/ar-galaxy-watch4-classic-399292-sm-r890nzkaaro-481214314?$2052_1641_PNG$'
+        imageLink: 'https://http2.mlstatic.com/D_NQ_NP_888122-MLA48026721287_102021-O.webp'
     },
 
 
 ];
 
 const categories = [
-    {id: 'analog', name: 'Analogicos'},
-    {id: 'dig', name: 'Digitales'},
+    {id: 'analogico', name: 'Analogicos'},
+    {id: 'digital', name: 'Digitales'},
     {id: 'smart', name: 'Smartwatches'}
 ]
 
 export const getCategories = () => {
-    return new Promise(resolve => {
-        setTimeout(() => {
+    return new Promise (resolve => {
+        setTimeout(()=>{
             resolve(categories)
         }, 500)
     })
 }
+
 
 export const getProducts = (categoryId) => {
     return new Promise (resolve => {

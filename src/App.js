@@ -1,17 +1,25 @@
 import './App.css';
 import NavBar from"./components/NavBar.js"
-import ItemListCointainer from './components/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import { BrowserRoute, Routes, Route} from 'react-router-dom';
+import { Routes, Route, BrowserRouter} from 'react-router-dom';
+import CarWidget from './components/CarWidget';
 
 
 function App() {
   
   return (
     <div className="App">
-      <NavBar />
-      <ItemListCointainer />
-      <ItemDetailContainer />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer />}></Route>
+          <Route path='/category/:categoryId' element={<ItemListContainer />}></Route>
+          <Route path='/item/:productId' element={<ItemDetailContainer />}></Route>
+          <Route path='/carwidget' element={<CarWidget />}></Route>
+          <Route path='*' element={<h1>NOT FOUND 404</h1>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

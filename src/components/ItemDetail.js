@@ -1,34 +1,29 @@
-import ItemCount from "./ItemCount";
-import { Col, Container, Card, Button, Row } from "react-bootstrap";
+
+import { Card, Button, Image} from "react-bootstrap";
 import React from "react";
+import { Link } from "react-router-dom";
 
 
-const ItemDetail = (item ) => {
+const ItemDetail = ({ imageLink, title, description, price, category }) => {
 
-    return(                 
-        <> 
-        <Container className="mt-3">
-            <Row>
-            <Card style={{ width: '18rem' }}>
-                
-                <Card.Img variant="top" src={item.imageLink} />
-                
-                <Col sm={8}>
-                <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>
-                    {item.description}
-                    </Card.Text>
-                    <Card.Text>
-                    {item.price}
-                    </Card.Text>
-                    <Button variant="primary">Agregar al carrito</Button>
-                </Card.Body>
-                </Col>
-            </Card>                 
-            </Row>
-        </Container>   
-        </>        
+    return( 
+            <Card className="mt-5 px-auto">
+            
+            <Card.Body >
+            <Card.Title className="my-3">'{title}'</Card.Title>
+            <Image src={imageLink} />
+            <Card.Text className="my-4">
+                {`Categoria: ${category}`}
+            </Card.Text>
+            <Card.Text className="my-4">
+                {description}
+            </Card.Text>
+            <Card.Text className="my-4">
+                {`Precio: $${price}`}
+            </Card.Text>
+            <Button  as={Link} to={'/carwidget'} variant="secondary" className="mb-3">Agregar al carrito</Button>
+            </Card.Body>
+            </Card>                      
     );
 }
 

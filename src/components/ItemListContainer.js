@@ -1,28 +1,29 @@
 import React from "react";
-import ItemCount from './ItemCount.js'
 import { useEffect, useState} from "react";
 import { getProducts } from '../asyncmock';
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom'
 
 
 function ItemListContainer(){
-    
+
     const [products, setProducts] = useState([]);
+    
+    const { categoryId } = useParams();
 
     useEffect(()=>{
-        getProducts().then((products)=>{
+        getProducts(categoryId).then((products)=>{
             setProducts(products)
+        }).catch(error =>{
+            console.log(error);
         });
-    }, []);
+    }, [categoryId]);
 
-    const onAddItem= (itemCount)=>{
-        alert(itemCount);
-    }
+    
 
     return (
         <div>      
           <ItemList products={products} />
-          <ItemCount stock={10} initial={1} onAdd={onAddItem} />
         </div>
     )
 };

@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
     const { productId } = useParams()
 
     useEffect(() => {
-        getProductsById(1).then(item => {
+        getProductsById(productId).then(item => {
             setProduct(item)          
         }).catch(err  => {
             console.log(err)
@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
                 loading ? 
                     <h1>Cargando...</h1> :
                 product ? 
-                    <ItemDetail  item= {product} /> :
+                    <ItemDetail  {...product} /> :
                     <h1>El producto no existe</h1> 
             }
         </div>
