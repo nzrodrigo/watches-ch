@@ -1,12 +1,22 @@
 
 import { Card, Button, Image} from "react-bootstrap";
-import React from "react";
+import React, { useState } from "react";
+import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 
 
 const ItemDetail = ({ imageLink, title, description, price, category, stock }) => {
+                
+            const [quantity, setQuantity] = useState(0)
+            const handleOnAdd= (q)=>{
+                setQuantity(q)
+            }
+            console.log(quantity);
 
     return( 
+        
+        
+
             <Card className="mt-5 px-auto">
             
             <Card.Body >
@@ -21,7 +31,8 @@ const ItemDetail = ({ imageLink, title, description, price, category, stock }) =
             <Card.Text className="my-4">
                 {`Precio: $${price}`}
             </Card.Text>
-            <Button  as={Link} to={'/carwidget'} variant="secondary" className="mb-3">Agregar al carrito</Button>
+            <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} />
+            <Button className="my-3" variant="secondary" as={Link} to={'/cart'}>Terminar compra</Button>
             </Card.Body>
             <Card.Text className="my-4">
                 {`Stock disponible: ${stock}`}
