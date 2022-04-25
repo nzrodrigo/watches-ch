@@ -19,7 +19,7 @@ const NavBar = () => {
   }, [])
 
     return(
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" sticky="top">
           <Container>
           <Navbar.Brand as={Link} to='/'>Watches</Navbar.Brand>
           <Nav className="justify-content-center">
@@ -27,9 +27,7 @@ const NavBar = () => {
           </Nav>
           <Nav>
           <Nav.Link as={Link} to='/cart' className='justify-content-end' >
-          
-          <CartWidget />
-          
+            <CartWidget />
           </Nav.Link>
           </Nav>
           </Container>
