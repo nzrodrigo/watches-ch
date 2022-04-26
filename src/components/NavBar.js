@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCategories } from '../asyncmock';
 import CartWidget from './CartWidget';
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 
 
 
@@ -11,6 +13,8 @@ import CartWidget from './CartWidget';
 const NavBar = () => {
 
   const [categories, setCategories] = useState([])
+  
+  const {cart} = useContext(CartContext)
 
   useEffect(()=>{
     getCategories().then(categories=>{
@@ -27,7 +31,7 @@ const NavBar = () => {
           </Nav>
           <Nav>
           <Nav.Link as={Link} to='/cart' className='justify-content-end' >
-            <CartWidget />
+            {cart.length >0 ? <CartWidget/> : ''}
           </Nav.Link>
           </Nav>
           </Container>
