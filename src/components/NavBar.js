@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Nav, Navbar} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { getCategories } from '../asyncmock';
+import { useState, useEffect } from 'react'; 
 import CartWidget from './CartWidget';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
-
+import { firestoreDb } from '../services/firebase';
+import { getDocs, collection } from 'firebase/firestore';
 
 
 
@@ -17,9 +17,13 @@ const NavBar = () => {
   const {cart} = useContext(CartContext)
 
   useEffect(()=>{
-    getCategories().then(categories=>{
-      setCategories(categories)
-    })
+      getDocs( collection(firestoreDb,'categories')).then( response =>{
+        const categories = response.docs.map( doc => {
+          return { id: doc.id, ...doc.data()}
+        })
+        setCategories(categories)
+      })
+    
   }, [])
 
     return(
