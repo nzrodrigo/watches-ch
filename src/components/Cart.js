@@ -5,6 +5,9 @@ import ItemCart from "./ItemCart";
 import {addDoc, collection, getDocs, query, where, documentId} from 'firebase/firestore';
 import {firestoreDb} from '../services/firebase';
 import { writeBatch } from "firebase/firestore";
+import Table from 'react-bootstrap/Table'
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
 
 
 const Cart = ()=>{
@@ -13,17 +16,36 @@ const Cart = ()=>{
 
     const { cart, clearCart, getTotal, getQuantity } = useContext(CartContext)  
 
-   
+    const [show, setShow] = useState(false);
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [client, setClient] = useState({
+        firstName: "",
+        email: "",
+        phone: ""
+    })
+
+    const handleFirstNameInput = (event)=>{
+        setClient({...client, firstName: event.target.value}) 
+     }
+      const handleEmailInput = (event)=>{
+         setClient({...client, email: event.target.value}) 
+      }
+      const handlePhoneInput = (event)=>{
+         setClient({...client, phone: event.target.value}) 
+      }
+      
     const createOrder = () => {
         setLoading(true)
 
         const objOrder = {
             items: cart,
-            buyer: {
-                name: 'Rodrigo',
-                phone: '11111111',
-                email: 'rodrigo@gmail.com'
+            buyer:{
+                name: client.firstName,
+                email: client.email,
+                phone: client.phone
             },
             total: getTotal(),
             date: new Date()
@@ -78,11 +100,58 @@ const Cart = ()=>{
 
     return(
         <div>
-        <h1>Cart</h1>
-        {cart.map(p => <ItemCart key={p.id} {...p} />)}
+        <Table hover size="md" className="w-75 p-3 mx-auto mt-5">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio unitario</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.map(p => <ItemCart key={p.id} {...p} />)}
+        </tbody>
+      </Table>
+        
         <h3>Total: ${getTotal()}</h3>
-        <Button variant="secondary" className="my-3" onClick={() => clearCart()}>Limpiar carrito</Button>
-        <Button variant="secondary" className="my-3" onClick={() => createOrder()}>Confirmar compra</Button>
+        <Button variant="outline-secondary" className="my-3" onClick={() => clearCart()}>Limpiar carrito</Button>
+        <Button variant="secondary" className="my-3 mx-2" onClick={handleShow} >CheckOut</Button>
+        
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ingrese sus datos</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <Form>
+            <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control type="name" placeholder="Ingrese su nombre" onChange={handleFirstNameInput} value={client.firstName}  /> 
+            </Form.Group>
+
+            <Form.Group className="mb-3"  controlId="formBasicEmail">
+                <Form.Label>e-mail</Form.Label>
+                <Form.Control type="email" placeholder="Ingrese su e-mail" onChange={handleEmailInput} value={client.email} />
+                <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPhone">
+                <Form.Label>Telefono</Form.Label>
+                <Form.Control placeholder="Ingrese su número de telefono" onChange={handlePhoneInput} value={client.phone}  />
+            </Form.Group>
+        </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={createOrder} onSubmit={handleClose}>  
+            Guardar y comprar
+          </Button>
+        </Modal.Footer>
+        </Modal>
         </div>
     )   
 }

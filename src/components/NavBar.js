@@ -31,7 +31,7 @@ const NavBar = () => {
           <Container>
           <Navbar.Brand as={Link} to='/'>Watches</Navbar.Brand>
           <Nav className="justify-content-center">
-            {categories.map( cat =><Nav.Link as={Link} key={cat.id} to={`/category/${cat.id}`}>{cat.name}</Nav.Link>)}
+            {categories.map( cat =><Nav.Link as={Link} key={cat.id} to={`/category/${cat.id}`} className='mx-3'>{cat.name}</Nav.Link>)}
           </Nav>
           <Nav>
           <Nav.Link as={Link} to='/cart' className='justify-content-end' >
