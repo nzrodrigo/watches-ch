@@ -1,3 +1,21 @@
+## Introducción
+Este es un proyecto final de e-commerce para un curso de React.js sobre relojes.
+
+## Tecnologias usadas
+- React.js 
+- Javascript
+- HTML
+- NPM
+- Dependencias
+  - React Router
+  - React bootstrap
+- Firebase (Database)
+
+## Autor
+
+Rodrigo Nuñez - [@nzrodrigo](https://www.github.com/nzrodrigo) 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
